@@ -1,0 +1,36 @@
+<ion-header >
+  <ion-toolbar class="new-background-color">
+    
+    <ion-title class="ion-text-center"> <ion-text color="light">Registr</ion-text> <ion-text color="warning">APP</ion-text></ion-title>
+    
+    <ion-buttons slot="end">
+      <ion-button (click)="menuUsuario()">
+        <ion-icon slot="icon-only" name="person-add-sharp" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <form #formulario="ngForm" (ngSubmit)="onSubmit()">
+
+    <ion-item>
+      <ion-label>Email: </ion-label>
+      <ion-input type="email" placeholder="Ingrese Su Email" name="email"[(ngModel)]="usuario.email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Password: </ion-label>
+      <ion-input type="password" placeholder="Ingrese Su Password" name="password" [(ngModel)]="usuario.password"  required></ion-input>
+    </ion-item>
+
+    <ion-button [disabled]="formulario.invalid" type="submit" expand="full" fill="outline" shape="round" routerLink="/crearqr">
+     Ingresar como Docente
+    </ion-button>
+    <ion-button [disabled]="formulario.invalid" type="submit" expand="full" fill="outline" shape="round" routerLink="/escanearqr">
+     Ingresar como Estudiante
+    </ion-button>
+  </form>
+
+</ion-content>
